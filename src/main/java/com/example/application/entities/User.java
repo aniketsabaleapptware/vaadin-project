@@ -7,11 +7,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.scheduling.support.SimpleTriggerContext;
 
 @Data
 @NoArgsConstructor
@@ -25,12 +26,18 @@ public class User {
   private int id;
 
   @Column(name = "first_name", length = 25, nullable = false)
-  private String firstname;
+  private String firstName;
+
 
   @Column(name = "last_name", length = 25, nullable = false)
-  private String lastname;
+  private String lastName;
+  @NonNull
+  private String gender;
 
-  @Email(message = "Email-Id can not be blank.")
+  @NonNull
+  private int age;
+
+  @Email(message = "Email-Id can not be blank")
   @NonNull
   private String email;
 
@@ -38,12 +45,9 @@ public class User {
   private long contactNumber;
 
   @NonNull
-  private int age;
+  private String bloodGroup;
 
   @NonNull
-  private String bloodgroup;
-
-
-
+  private String address;
 
 }
