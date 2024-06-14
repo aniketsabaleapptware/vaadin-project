@@ -7,12 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.springframework.scheduling.support.SimpleTriggerContext;
 
 @Data
 @NoArgsConstructor
@@ -31,6 +29,7 @@ public class User {
 
   @Column(name = "last_name", length = 25, nullable = false)
   private String lastName;
+
   @NonNull
   private String gender;
 

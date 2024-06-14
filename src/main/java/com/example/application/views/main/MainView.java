@@ -5,12 +5,10 @@ import com.example.application.repositories.UserRepository;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
-import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.IntegerField;
-import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
@@ -40,10 +38,10 @@ public class MainView extends VerticalLayout {
 
   Button submitButton = new Button("Submit");
 
-  public MainView(UserRepository userRepository){
+  public MainView(UserRepository userRepository) {
     this.userRepository = userRepository;
 
-    bloodGroupComboBox.setItems("A+","A-", "B+", "B-", "AB+", "AB-", "O+",  "O-");
+    bloodGroupComboBox.setItems("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-");
     genderComboBox.setItems("Male", "Female", "Others");
 
     binder.forField(firstNameField)
@@ -93,8 +91,6 @@ public class MainView extends VerticalLayout {
     setMargin(true);
     setAlignItems(Alignment.CENTER);
   }
-
-
 
 
   private void clearFormFields() {
