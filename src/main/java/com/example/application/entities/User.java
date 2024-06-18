@@ -1,12 +1,18 @@
 package com.example.application.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,7 +40,7 @@ public class User {
   private String gender;
 
   @NonNull
-  private int age;
+  private LocalDate dob;
 
   @Email(message = "Email-Id can not be blank")
   @NonNull
@@ -46,7 +52,11 @@ public class User {
   @NonNull
   private String bloodGroup;
 
-  @NonNull
-  private String address;
+  private String maritalStatus;
 
+  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+  private Address address;
+
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+  private List<EducationDetails> educationDetails = new ArrayList<>();
 }
